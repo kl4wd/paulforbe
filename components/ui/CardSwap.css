@@ -1,0 +1,28 @@
+.card-swap-container {
+  position: relative;
+  /* Removed absolute positioning to fix centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  perspective: 1000px;
+  overflow: visible;
+}
+
+.card-swap-card {
+  position: absolute;
+  /* top/left 50% + translate logic is handled by GSAP, 
+     but initial state needs to be centered relative to container */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Start centered */
+  
+  border-radius: 12px;
+  
+  transform-style: preserve-3d;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  cursor: pointer; /* Indicate interactivity */
+}
+
