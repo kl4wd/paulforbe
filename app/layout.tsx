@@ -22,8 +22,26 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Paulforbe - Gestion de Patrimoine",
-  description: "Cabinet de gestion de patrimoine d'excellence. Expertise et innovation.",
+  title: {
+    template: "%s | Paulforbe",
+    default: "Paulforbe - Gestion de Patrimoine",
+  },
+  description: "Cabinet de gestion de patrimoine d'excellence. Stratégie patrimoniale, investissement immobilier, placements financiers et optimisation fiscale.",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "Paulforbe - Gestion de Patrimoine",
+    description: "Cabinet de gestion de patrimoine d'excellence valant conseil en investissement financier, immobilier et optimisation fiscale.",
+    url: "https://paulforbe.com",
+    siteName: "Paulforbe",
+    locale: "fr_FR",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

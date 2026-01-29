@@ -4,7 +4,7 @@ import { Simulator } from "@/components/ui/Simulator";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { ClipboardCheck, TrendingUp, Building2, Briefcase, ShieldCheck, Landmark, Compass, PiggyBank, Target } from "lucide-react";
 import { motion } from "framer-motion";
-import CardSwap, { Card } from "@/components/ui/CardSwap";
+import { Timeline, TimelineItem } from "@/components/ui/Timeline";
 
 const expertise = [
   { 
@@ -86,27 +86,27 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative pt-12 pb-16 lg:pt-20 lg:pb-16 overflow-hidden">
+      <section className="relative pt-8 pb-8 lg:pt-12 lg:pb-8 overflow-hidden">
         <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[800px] h-[800px] bg-blue-100 rounded-full blur-3xl opacity-30 pointer-events-none" />
         <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[600px] h-[600px] bg-indigo-100 rounded-full blur-3xl opacity-30 pointer-events-none" />
         
-        <div className="container mx-auto px-6 text-center mb-12 relative z-10">
+        <div className="container mx-auto px-6 text-center mb-8 relative z-10">
            <motion.div
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 0.6 }}
            >
-             <h2 className="text-sm font-bold tracking-[0.2em] text-rothschild/60 uppercase mb-4">Conseil en gestion de patrimoine</h2>
-             <h1 className="text-4xl lg:text-6xl font-serif font-bold text-rothschild mb-8 leading-tight tracking-tight max-w-4xl mx-auto">
+             <h2 className="text-sm font-bold tracking-[0.2em] text-rothschild/60 uppercase mb-3">Conseil en gestion de patrimoine</h2>
+             <h1 className="text-4xl lg:text-5xl font-serif font-bold text-rothschild mb-6 leading-tight tracking-tight max-w-4xl mx-auto">
                Une équipe au coeur de votre <span className="text-transparent bg-clip-text bg-gradient-to-r from-rothschild to-blue-600">stratégie patrimoniale.</span>
              </h1>
-             <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
+             <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
                Notre métier de conseil en gestion de patrimoine consiste à vous accompagner pour optimiser tous les sujets qui concernent votre patrimoine : épargne, placements, investissement immobilier, impôts, retraite, prévoyance...
              </p>
            </motion.div>
         </div>
 
-        <div className="container mx-auto px-6 relative z-10 mb-12">
+        <div className="container mx-auto px-6 relative z-10 mb-8">
            <motion.div
              initial={{ opacity: 0, y: 40 }}
              animate={{ opacity: 1, y: 0 }}
@@ -117,113 +117,102 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 bg-slate-50 border-y border-white/50 relative overflow-hidden">
+      <section className="py-8 bg-slate-50 border-y border-white/50 relative overflow-hidden">
          <div className="container mx-auto px-6 relative z-10">
-            <div className="grid md:grid-cols-3 gap-12 text-center mb-12">
-               <div className="space-y-2">
-                  <div className="text-5xl font-serif font-bold text-rothschild">2014</div>
-                  <div className="text-sm font-medium text-gray-500 uppercase tracking-widest">notre année de création</div>
+            <div className="grid md:grid-cols-3 gap-8 text-center mb-0">
+               <div className="space-y-1">
+                  <div className="text-4xl font-serif font-bold text-rothschild">2014</div>
+                  <div className="text-xs font-medium text-gray-500 uppercase tracking-widest">notre année de création</div>
                </div>
-               <div className="space-y-2">
-                  <div className="text-5xl font-serif font-bold text-rothschild">100%</div>
-                  <div className="text-sm font-medium text-gray-500 uppercase tracking-widest">indépendant</div>
+               <div className="space-y-1">
+                  <div className="text-4xl font-serif font-bold text-rothschild">100%</div>
+                  <div className="text-xs font-medium text-gray-500 uppercase tracking-widest">indépendant</div>
                </div>
-               <div className="space-y-2">
-                  <div className="text-5xl font-serif font-bold text-rothschild text-nowrap">+2000</div>
-                  <div className="text-sm font-medium text-gray-500 uppercase tracking-widest">projets réalisés</div>
+               <div className="space-y-1">
+                  <div className="text-4xl font-serif font-bold text-rothschild text-nowrap">+2000</div>
+                  <div className="text-xs font-medium text-gray-500 uppercase tracking-widest">projets réalisés</div>
                </div>
             </div>
 
          </div>
       </section>
 
-      <section className="py-16 relative">
+      <section className="py-10 relative">
          <div className="container mx-auto px-6">
-            <h2 className="text-3xl md:text-5xl font-serif font-bold text-rothschild mb-16 text-center">Notre Expertise</h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-rothschild mb-10 text-center">Notre Expertise</h2>
+            <div className="grid md:grid-cols-2 gap-6">
                 {expertise.map((item, i) => (
-                    <GlassCard key={i} hoverEffect className="p-8 md:p-10 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-                         <div className="w-16 h-16 shrink-0 bg-blue-50/80 rounded-2xl flex items-center justify-center text-rothschild">
-                             <item.icon size={32} />
-                         </div>
-                         <div>
-                             <h3 className="text-xl font-bold font-serif text-rothschild mb-3">{item.title}</h3>
-                             <p className="text-gray-600 leading-relaxed text-sm md:text-base mb-4">{item.desc}</p>
-                             {item.list && (
-                                 <ul className="list-disc list-inside text-sm text-gray-500 space-y-1">
-                                     {item.list.map((li, idx) => (
-                                         <li key={idx}>{li}</li>
-                                     ))}
-                                 </ul>
-                             )}
-                         </div>
-                    </GlassCard>
+                    <GlassCard key={i} hoverEffect className="p-6 md:p-8 flex flex-col md:flex-row gap-5 items-start">
+                         <div className="w-14 h-14 shrink-0 bg-blue-50/80 rounded-2xl flex items-center justify-center text-rothschild">
+                              <item.icon size={28} />
+                          </div>
+                          <div>
+                              <h3 className="text-lg font-bold font-serif text-rothschild mb-2">{item.title}</h3>
+                              <p className="text-gray-600 leading-relaxed text-sm mb-3">{item.desc}</p>
+                              {item.list && (
+                                  <ul className="list-disc list-inside text-sm text-gray-500 space-y-1">
+                                      {item.list.map((li, idx) => (
+                                          <li key={idx}>{li}</li>
+                                      ))}
+                                  </ul>
+                              )}
+                          </div>
+                     </GlassCard>
                 ))}
             </div>
          </div>
       </section>
 
-      <section className="py-20 relative bg-slate-50 overflow-hidden min-h-[900px]">
-         <div className="container mx-auto px-6 h-full flex flex-col items-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16 relative z-10"
-            >
-                 <h2 className="text-4xl md:text-6xl font-serif font-bold text-rothschild mb-6">Nos Domaines d&apos;Intervention</h2>
-                 <div className="w-24 h-1 bg-rothschild/20 mx-auto rounded-full" />
-                 <p className="mt-6 text-gray-500 max-w-2xl mx-auto">
-                    Découvrez nos domaines d&apos;expertise à travers une approche sur-mesure. (Faites défiler les cartes)
-                 </p>
-            </motion.div>
+      <section className="relative bg-slate-50 py-10 overflow-hidden">
+        <div className="container mx-auto px-6 mb-8 text-center">
+                <h2 className="text-3xl md:text-5xl font-serif font-bold text-rothschild mb-4">Nos Domaines d&apos;Intervention</h2>
+                <div className="w-20 h-1 bg-rothschild/20 mx-auto rounded-full" />
+                <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
+                Découvrez nos domaines d&apos;expertise à travers une approche sur-mesure. (Faites défiler horizontalement)
+                </p>
+        </div>
 
-            <div className="relative w-full max-w-4xl h-[600px] flex justify-center items-center">
-                <CardSwap
-                    width={450}
-                    height={550}
-                    cardDistance={40}
-                    verticalDistance={40}
-                    delay={4000}
-                    pauseOnHover={true}
-                >
-                    {sectors.map((sector, i) => (
-                        <Card key={i} className="cursor-pointer" style={{ width: 450, height: 550 }}>
-                            <GlassCard hoverEffect={false} className="h-full flex flex-col p-8 md:p-10 border border-white/60 bg-white/80 backdrop-blur-xl shadow-2xl">
-                                <div className="w-16 h-16 shrink-0 bg-gradient-to-br from-rothschild to-blue-900 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-rothschild/20">
+        <div className="container mx-auto relative px-6">
+            <Timeline className="w-full">
+                {sectors.map((sector, i) => (
+                    <TimelineItem key={i}>
+                        <GlassCard 
+                            hoverEffect={true} 
+                            enableAnimation={true}
+                            className="h-full flex flex-col p-6 md:p-8 border border-blue-100/50 bg-white/80 backdrop-blur-md shadow-xl min-h-[400px]"
+                        >
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="w-16 h-16 shrink-0 bg-gradient-to-br from-rothschild to-blue-900 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-rothschild/20">
                                     <sector.icon size={32} />
                                 </div>
-                                
-                                <h3 className="text-2xl font-serif font-bold text-rothschild mb-4">
+                                <h3 className="text-xl md:text-2xl font-serif font-bold text-rothschild">
                                     {sector.title}
                                 </h3>
+                            </div>
+                            
+                            <div className="flex-grow overflow-y-auto custom-scrollbar pr-2">
+                                <p className="text-gray-600 leading-relaxed text-sm mb-4">
+                                    {sector.desc}
+                                </p>
                                 
-                                <div className="flex-grow overflow-y-auto pr-2 custom-scrollbar">
-                                    <p className="text-gray-600 leading-relaxed text-sm mb-6">
-                                        {sector.desc}
-                                    </p>
-                                    
-                                    {sector.list && (
-                                        <ul className="space-y-2">
-                                            {sector.list.map((li, idx) => (
-                                                <li key={idx} className="flex items-start gap-3">
-                                                    <div className="w-1.5 h-1.5 rounded-full bg-rothschild mt-2 shrink-0" />
-                                                    <span className="text-xs font-medium text-gray-500 leading-snug">
-                                                        {li}
-                                                    </span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    )}
-                                </div>
-                            </GlassCard>
-                        </Card>
-                    ))}
-                </CardSwap>
-            </div>
-         </div>
-         
-         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-blue-100/50 to-purple-100/50 rounded-full blur-[100px] pointer-events-none" />
+                                {sector.list && (
+                                    <ul className="grid gap-2">
+                                        {sector.list.map((li, idx) => (
+                                            <li key={idx} className="flex items-start gap-2">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-rothschild mt-2 shrink-0" />
+                                                <span className="text-sm font-medium text-gray-600 leading-snug">
+                                                    {li}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
+                        </GlassCard>
+                    </TimelineItem>
+                ))}
+            </Timeline>
+        </div>
       </section>
     </div>
   );
