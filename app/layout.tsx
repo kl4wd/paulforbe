@@ -35,9 +35,7 @@ export const metadata: Metadata = {
   },
   description: "Cabinet de gestion de patrimoine d'excellence. Stratégie patrimoniale, investissement immobilier, placements financiers et optimisation fiscale.",
   keywords: ["Paul Forbe", "Paulforbe", "Gestion de patrimoine", "Conseiller en gestion de patrimoine", "Investissement immobilier", "Courtier crédit", "Défiscalisation", "SCPI", "Assurance vie", "Paris"],
-  icons: {
-    icon: "/favicon.ico",
-  },
+
   openGraph: {
     title: "Paulforbe - Gestion de Patrimoine",
     description: "Cabinet de gestion de patrimoine d'excellence valant conseil en investissement financier, immobilier et optimisation fiscale.",

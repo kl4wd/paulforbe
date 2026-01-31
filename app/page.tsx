@@ -43,7 +43,7 @@ export default function Home() {
                <iframe 
                     width="100%" 
                     height="100%" 
-                    src="https://www.youtube.com/embed/8Sucd2UZHiM?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=8Sucd2UZHiM" 
+                    src="https://www.youtube.com/embed/8Sucd2UZHiM?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=8Sucd2UZHiM&vq=hd2160" 
                     title="Paul Forbe - Paris"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     className="w-full h-full object-cover scale-[1.35] pointer-events-none"
