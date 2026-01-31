@@ -36,14 +36,12 @@ export const Partners = () => {
                     {[...partners, ...partners].map((partner, i) => (
                         <div key={i} className="flex flex-col items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
                            <div className="h-16 w-auto min-w-[120px] relative flex items-center justify-center">
-                                <img 
+                                <Image 
                                     src={`/partners/${partner.logo}`} 
                                     alt={partner.name}
-                                    className="h-full w-auto object-contain max-h-16"
-                                    onError={(e) => {
-                                        e.currentTarget.style.display = 'none';
-                                        e.currentTarget.nextElementSibling?.classList.remove('hidden');
-                                    }}
+                                    fill
+                                    className="object-contain p-2"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
                                 <span className="hidden text-xl font-serif font-bold text-gray-400">{partner.name}</span>
                            </div>
@@ -55,14 +53,12 @@ export const Partners = () => {
                      {[...partners, ...partners].map((partner, i) => (
                         <div key={i} className="flex flex-col items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
                            <div className="h-16 w-auto min-w-[120px] relative flex items-center justify-center">
-                                <img 
+                                <Image 
                                     src={`/partners/${partner.logo}`} 
                                     alt={partner.name}
-                                    className="h-full w-auto object-contain max-h-16"
-                                     onError={(e) => {
-                                        e.currentTarget.style.display = 'none';
-                                        e.currentTarget.nextElementSibling?.classList.remove('hidden');
-                                    }}
+                                    fill
+                                    className="object-contain p-2"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
                                 <span className="hidden text-xl font-serif font-bold text-gray-400">{partner.name}</span>
                            </div>

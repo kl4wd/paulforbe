@@ -1,9 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { cn } from "@/lib/utils";
-import { Info, Check, User, Building } from "lucide-react";
-import { motion } from "framer-motion";
+import { Info } from "lucide-react";
 
 export const LoanSimulator = () => {
     const [amount, setAmount] = useState(250000);

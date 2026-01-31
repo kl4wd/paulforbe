@@ -1,6 +1,5 @@
 import { useRef, useEffect } from "react";
-import { useScroll, useTransform, motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 import Image from "next/image";
 import { useSection } from "@/context/SectionContext";
@@ -84,7 +83,7 @@ export const StickyScrollReveal = ({ items, sectionTitle }: StickyScrollRevealPr
     );
 };
 
-const SectionImage = ({ item, index, total, scrollYProgress }: { item: DomainItem, index: number, total: number, scrollYProgress: any }) => {
+const SectionImage = ({ item, index, total, scrollYProgress }: { item: DomainItem, index: number, total: number, scrollYProgress: MotionValue<number> }) => {
     const opacity = useTransform(scrollYProgress, 
         index === 0 
         ? [0, (index+1)/total-0.05, (index+1)/total] 
@@ -114,7 +113,7 @@ const SectionImage = ({ item, index, total, scrollYProgress }: { item: DomainIte
     );
 };
 
-const SectionText = ({ item, index, total, scrollYProgress }: { item: DomainItem, index: number, total: number, scrollYProgress: any }) => {
+const SectionText = ({ item, index, total, scrollYProgress }: { item: DomainItem, index: number, total: number, scrollYProgress: MotionValue<number> }) => {
     const rangeStart = index / total;
     const rangeEnd = (index + 1) / total;
 
@@ -189,11 +188,9 @@ const SectionText = ({ item, index, total, scrollYProgress }: { item: DomainItem
     );
 };
 
-const SummaryWheel = ({ items, scrollYProgress }: { items: DomainItem[], scrollYProgress: any }) => {
+const SummaryWheel = ({ items, scrollYProgress }: { items: DomainItem[], scrollYProgress: MotionValue<number> }) => {
     
     const ITEM_HEIGHT = 40;
-    const VISIBLE_COUNT = 3; 
-    const OFFSET = (VISIBLE_COUNT - 1) / 2;
 
     const yScan = useTransform(scrollYProgress, [0, 1], [0, -(items.length - 1) * ITEM_HEIGHT]);
     
@@ -221,7 +218,15 @@ const SummaryWheel = ({ items, scrollYProgress }: { items: DomainItem[], scrollY
     );
 };
 
-const WheelItem = ({ index, total, text, scrollYProgress, height }: any) => {
+interface WheelItemProps {
+    index: number;
+    total: number;
+    text: string;
+    scrollYProgress: MotionValue<number>;
+    height: number;
+}
+
+const WheelItem = ({ index, total, text, scrollYProgress, height }: WheelItemProps) => {
     
     const progressPoint = index / max(total - 1, 1);
     
@@ -233,8 +238,8 @@ const WheelItem = ({ index, total, text, scrollYProgress, height }: any) => {
     );
     
     const scale = useTransform(scrollYProgress, 
-         [progressPoint - range, progressPoint, progressPoint + range], 
-         [0.8, 1, 0.8]
+        [progressPoint - range, progressPoint, progressPoint + range], 
+        [0.8, 1, 0.8]
     );
 
     const color = useTransform(scrollYProgress,
