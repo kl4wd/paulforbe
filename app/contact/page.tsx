@@ -83,6 +83,31 @@ export default function Contact() {
                          <label className="text-sm font-semibold text-gray-600">Email</label>
                          <input name="email" type="email" required className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-rothschild focus:ring-1 focus:ring-rothschild outline-none transition-all" />
                     </div>
+                    
+                    <div className="space-y-2">
+                         <label className="text-sm font-semibold text-gray-600">Téléphone</label>
+                         <input name="phone" type="tel" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-rothschild focus:ring-1 focus:ring-rothschild outline-none transition-all" />
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                        <div className="space-y-2">
+                             <label className="text-sm font-semibold text-gray-600">Nature du contact</label>
+                             <select name="nature" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-rothschild focus:ring-1 focus:ring-rothschild outline-none transition-all text-gray-700">
+                                 <option value="audit">Audit Patrimonial</option>
+                                 <option value="investissement">Investissement (SCPI, PE...)</option>
+                                 <option value="credit">Crédit Immobilier</option>
+                                 <option value="carriere">Carrière / Recrutement</option>
+                                 <option value="autre">Autre demande</option>
+                             </select>
+                        </div>
+                         <div className="space-y-2">
+                             <label className="text-sm font-semibold text-gray-600">Créneau préférentiel</label>
+                             <div className="grid grid-cols-2 gap-3">
+                                <input name="date" type="date" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-rothschild focus:ring-1 focus:ring-rothschild outline-none transition-all text-gray-700" />
+                                <input name="time" type="time" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-rothschild focus:ring-1 focus:ring-rothschild outline-none transition-all text-gray-700" />
+                             </div>
+                        </div>
+                    </div>
                      <div className="space-y-2">
                          <label className="text-sm font-semibold text-gray-600">Message</label>
                          <textarea name="message" required rows={4} className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-rothschild focus:ring-1 focus:ring-rothschild outline-none transition-all"></textarea>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -21,6 +21,25 @@ export const Timeline = ({ children, className }: TimelineProps) => {
       });
     }
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+        if (scrollRef.current) {
+            const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
+             // Loop logic: if at end, go to start (smoothly or instantly? Instantly is better for loop but smooth is nicer UI)
+             // Simple interaction: just scroll right, if at end go to 0.
+            if (scrollRef.current.scrollLeft >= maxScroll - 10) {
+                scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+            } else {
+                 // Scroll by a smaller amount or item width? 
+                 // The items are 450px wide. Scroll amount in function is 400.
+                scroll("right");
+            }
+        }
+    }, 4000); 
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className={cn("relative group", className)}>

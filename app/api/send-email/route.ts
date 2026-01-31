@@ -12,6 +12,11 @@ export async function POST(request: Request) {
     const file = formData.get('file') as File | null;
     const linkedin = formData.get('linkedin') as string | null;
 
+    const phone = formData.get('phone') as string;
+    const nature = formData.get('nature') as string;
+    const date = formData.get('date') as string;
+    const time = formData.get('time') as string;
+
     const hasCredentials = process.env.SMTP_HOST && process.env.SMTP_USER;
 
     if (!hasCredentials) {
@@ -19,7 +24,10 @@ export async function POST(request: Request) {
         console.log(" NO SMTP CREDENTIALS - DATA LOGGED ONLY ");
         console.log("Type:", type);
         console.log("From:", `${firstName} ${lastName} <${email}>`);
+        console.log("Phone:", phone);
         console.log("Message:", message);
+        console.log("Nature:", nature);
+        console.log("Date/Time:", date, time);
         if (linkedin) console.log("LinkedIn:", linkedin);
         if (file) console.log("File attached:", file.name, `(${file.size} bytes)`);
         console.log("------------------------------------------");
@@ -30,7 +38,7 @@ export async function POST(request: Request) {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT) || 587,
-      secure: false,
+      secure: false, // true for 465, false for other ports
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -45,6 +53,10 @@ export async function POST(request: Request) {
         <h2>Nouvelle demande de contact via le site</h2>
         <p><strong>Nom :</strong> ${firstName} ${lastName}</p>
         <p><strong>Email :</strong> ${email}</p>
+        <p><strong>Téléphone :</strong> ${phone || 'Non renseigné'}</p>
+        <hr />
+        <p><strong>Nature de la demande :</strong> ${nature || 'Non renseigné'}</p>
+        <p><strong>Créneau souhaité :</strong> ${date || ''} à ${time || ''}</p>
         <h3>Message :</h3>
         <p style="background: #f5f5f5; padding: 15px; border-radius: 5px;">${message.replace(/\n/g, '<br>')}</p>
     `;
