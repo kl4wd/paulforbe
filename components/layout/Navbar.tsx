@@ -47,13 +47,13 @@ export const Navbar = () => {
                     )}>
                             <Link 
                                 href="/"
-                                className="text-sm font-medium text-rothschild hover:opacity-80 transition-opacity"
+                                className="text-sm font-serif font-bold text-rothschild hover:opacity-80 transition-opacity"
                             >
                                 Accueil
                             </Link>
 
                         <div className="relative group">
-                            <button className="flex items-center gap-1 text-sm font-medium text-rothschild hover:opacity-80 transition-opacity">
+                            <button className="flex items-center gap-1 text-sm font-serif font-bold text-rothschild hover:opacity-80 transition-opacity">
                                 Ressources
                                 <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
                             </button>
@@ -74,7 +74,7 @@ export const Navbar = () => {
 
                         <Link 
                             href="/contact"
-                            className="text-sm font-medium text-rothschild hover:opacity-80 transition-opacity"
+                            className="text-sm font-serif font-bold text-rothschild hover:opacity-80 transition-opacity"
                         >
                             Contact
                         </Link>
