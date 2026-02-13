@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldCheck, HardHat, Car, Home, TrendingUp, HeartPulse, Stethoscope, Activity, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, HardHat, Car, Home, TrendingUp, HeartPulse, Stethoscope, Activity, ArrowRight, CheckCircle2, UserCheck, Clock } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -132,39 +132,47 @@ export default function ProPage() {
                 <div className="absolute inset-0 bg-blue-600/20 mix-blend-overlay"></div>
                 <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h2 className="text-3xl font-serif font-bold text-rothschild mb-4">Pourquoi faire appel à un courtier spécialisé ?</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-                Nous comprenons les enjeux spécifiques des professionnels. Gagnez du temps et optimisez votre protection grâce à notre expertise.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-                <div className="flex gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
-                        <UserCheck size={24} />
+                        <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 text-white">Pourquoi faire appel à un courtier spécialisé ?</h2>
+                        <p className="text-blue-100 text-lg mb-8">
+                            Nous comprenons les enjeux spécifiques des professionnels. Gagnez du temps et optimisez votre protection grâce à notre expertise.
+                        </p>
+                        <Link 
+                            href="/contact" 
+                            className="inline-flex items-center justify-center px-8 py-4 bg-white text-rothschild rounded-xl font-bold hover:bg-blue-50 transition-colors"
+                        >
+                            Contacter le pôle Pro
+                            <ArrowRight className="ml-2 w-5 h-5" />
+                        </Link>
                     </div>
-                    <div>
-                        <h3 className="font-bold text-lg text-gray-900 mb-1">Expertise Métier</h3>
-                        <p className="text-gray-600">Nous connaissons les risques liés à votre activité et trouvons les contrats les plus adaptés.</p>
-                    </div>
-                </div>
-                <div className="flex gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-yellow-100 text-yellow-600 flex items-center justify-center shrink-0">
-                        <Clock size={24} />
-                    </div>
-                    <div>
-                        <h3 className="font-bold text-lg text-gray-900 mb-1">Gain de temps</h3>
-                        <p className="text-gray-600">Ne perdez plus d&apos;heures à comparer les offres. Nous le faisons pour vous.</p>
-                    </div>
-                </div>
-                <div className="flex gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center shrink-0">
-                        <CheckCircle2 size={24} />
-                    </div>
-                    <div>
-                        <h3 className="font-bold text-lg text-gray-900 mb-1">Indépendance</h3>
-                        <p className="text-gray-600">Nous ne sommes liés à aucune compagnie. Notre seul intérêt est le d&apos;autre.</p>
+                    
+                    <div className="space-y-6">
+                        <div className="flex gap-4">
+                            <div className="w-12 h-12 rounded-xl bg-white/10 text-white flex items-center justify-center shrink-0">
+                                <UserCheck size={24} />
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-lg text-white mb-1">Expertise Métier</h3>
+                                <p className="text-blue-100/80">Nous connaissons les risques liés à votre activité et trouvons les contrats les plus adaptés.</p>
+                            </div>
+                        </div>
+                        <div className="flex gap-4">
+                            <div className="w-12 h-12 rounded-xl bg-white/10 text-white flex items-center justify-center shrink-0">
+                                <Clock size={24} />
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-lg text-white mb-1">Gain de temps</h3>
+                                <p className="text-blue-100/80">Ne perdez plus d&apos;heures à comparer les offres. Nous le faisons pour vous.</p>
+                            </div>
+                        </div>
+                        <div className="flex gap-4">
+                            <div className="w-12 h-12 rounded-xl bg-white/10 text-white flex items-center justify-center shrink-0">
+                                <CheckCircle2 size={24} />
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-lg text-white mb-1">Indépendance</h3>
+                                <p className="text-blue-100/80">Nous ne sommes liés à aucune compagnie. Notre seul intérêt est le vôtre.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
