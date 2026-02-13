@@ -10,6 +10,7 @@ export const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState(false);
+    const [mobilePourquoiNousOpen, setMobilePourquoiNousOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -52,6 +53,31 @@ export const Navbar = () => {
                                 Accueil
                             </Link>
 
+                        {/* Nouveau menu "Pourquoi nous ?" */}
+                        <div className="relative group">
+                            <button className="flex items-center gap-1 text-sm font-serif font-bold text-rothschild hover:opacity-80 transition-opacity">
+                                Pourquoi nous ?
+                                <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
+                            </button>
+                            
+                            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 hidden group-hover:block w-64">
+                                <div className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-xl border border-white/50 p-2 flex flex-col gap-1 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+                                    <Link href="/pro" className="block px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                                        <div className="text-sm font-serif font-bold text-rothschild group-hover/item:translate-x-1 transition-transform">Espace Pro</div>
+                                        <div className="text-xs text-gray-500 mt-0.5">Solutions entreprises</div>
+                                    </Link>
+                                    <Link href="/avis" className="block px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                                        <div className="text-sm font-serif font-bold text-rothschild group-hover/item:translate-x-1 transition-transform">Avis Clients</div>
+                                        <div className="text-xs text-gray-500 mt-0.5">Retours d'expérience</div>
+                                    </Link>
+                                    <Link href="/equipe" className="block px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                                        <div className="text-sm font-serif font-bold text-rothschild group-hover/item:translate-x-1 transition-transform">Notre Équipe</div>
+                                        <div className="text-xs text-gray-500 mt-0.5">Vos experts dédiés</div>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+
                         <div className="relative group">
                             <button className="flex items-center gap-1 text-sm font-serif font-bold text-rothschild hover:opacity-80 transition-opacity">
                                 Ressources
@@ -67,6 +93,10 @@ export const Navbar = () => {
                                     <Link href="/ressources/simulateur-pret" className="block px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors group/item">
                                         <div className="text-sm font-serif font-bold text-rothschild group-hover/item:translate-x-1 transition-transform">Prêt Immobilier</div>
                                         <div className="text-xs text-gray-500 mt-0.5">Calculez vos mensualités</div>
+                                    </Link>
+                                    <Link href="/faq" className="block px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                                        <div className="text-sm font-serif font-bold text-rothschild group-hover/item:translate-x-1 transition-transform">FAQ</div>
+                                        <div className="text-xs text-gray-500 mt-0.5">Questions fréquentes</div>
                                     </Link>
                                     </div>
                             </div>
@@ -103,6 +133,42 @@ export const Navbar = () => {
 
                         <div className="space-y-4">
                             <button 
+                                onClick={() => setMobilePourquoiNousOpen(!mobilePourquoiNousOpen)}
+                                className="flex items-center gap-2 text-3xl font-serif font-bold text-rothschild w-full justify-between"
+                            >
+                                Pourquoi nous ?
+                                <ChevronDown size={24} className={cn("transition-transform", mobilePourquoiNousOpen && "rotate-180")} />
+                            </button>
+                            
+                            {mobilePourquoiNousOpen && (
+                                <div className="flex flex-col gap-4 pl-4 border-l-2 border-rothschild/20">
+                                    <Link 
+                                        href="/pro"
+                                        onClick={() => setIsOpen(false)}
+                                        className="text-xl font-medium text-gray-600 block"
+                                    >
+                                        Espace Pro
+                                    </Link>
+                                    <Link 
+                                        href="/avis"
+                                        onClick={() => setIsOpen(false)}
+                                        className="text-xl font-medium text-gray-600 block"
+                                    >
+                                        Avis Clients
+                                    </Link>
+                                    <Link 
+                                        href="/equipe"
+                                        onClick={() => setIsOpen(false)}
+                                        className="text-xl font-medium text-gray-600 block"
+                                    >
+                                        Notre Équipe
+                                    </Link>
+                                </div>
+                            )}
+                        </div>
+
+                        <div className="space-y-4">
+                            <button 
                                 onClick={() => setMobileSubmenuOpen(!mobileSubmenuOpen)}
                                 className="flex items-center gap-2 text-3xl font-serif font-bold text-rothschild w-full justify-between"
                             >
@@ -125,6 +191,13 @@ export const Navbar = () => {
                                         className="text-xl font-medium text-gray-600 block"
                                     >
                                         Simulateur Prêt
+                                    </Link>
+                                    <Link 
+                                        href="/faq"
+                                        onClick={() => setIsOpen(false)}
+                                        className="text-xl font-medium text-gray-600 block"
+                                    >
+                                        FAQ
                                     </Link>
                                 </div>
                             )}

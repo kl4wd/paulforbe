@@ -1,9 +1,42 @@
 "use client";
 
 import { TrendingUp, Building2, Briefcase, ShieldCheck, Landmark, Compass, PiggyBank, ClipboardCheck } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { Partners } from "@/components/ui/Partners";
 import { StickyScrollReveal } from "@/components/ui/StickyScrollReveal";
+
+const ScrollVideo = () => {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end end"]
+    });
+
+    const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
+    const borderRadius = useTransform(scrollYProgress, [0, 0.5], [0, 32]);
+    
+    return (
+        <div ref={containerRef} className="h-[150vh] relative">
+            <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+                <motion.div 
+                    style={{ scale, borderRadius }}
+                    className="w-full h-full shadow-2xl relative overflow-hidden"
+                >
+                     <iframe 
+                        width="100%" 
+                        height="100%" 
+                        src="https://www.youtube.com/embed/REDVbTQxMXo?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=REDVbTQxMXo&vq=hd2160" 
+                        title="Paul Forbe - Paris"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        className="w-full h-full object-cover scale-[1.35] pointer-events-none"
+                        style={{ border: 'none' }}
+                    />
+                </motion.div>
+            </div>
+        </div>
+    );
+};
 
 export default function Home() {
 
@@ -29,43 +62,19 @@ export default function Home() {
             </motion.div>
          </div>
 
-
-         <div className="container mx-auto px-6 relative z-10 mb-8">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="rounded-3xl overflow-hidden shadow-2xl border border-white/50 aspect-video relative group"
-            >
-
-
-               
-               <iframe 
-                    width="100%" 
-                    height="100%" 
-                    src="https://www.youtube.com/embed/8Sucd2UZHiM?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=8Sucd2UZHiM&vq=hd2160" 
-                    title="Paul Forbe - Paris"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    className="w-full h-full object-cover scale-[1.35] pointer-events-none"
-                    style={{ border: 'none' }}
-                />
-            </motion.div>
-         </div>
       </section>
+
+      <ScrollVideo />
 
 
       <Partners />
 
       <section className="py-8 bg-slate-50 border-y border-white/50 relative overflow-hidden">
          <div className="container mx-auto px-6 relative z-10">
-            <div className="grid md:grid-cols-3 gap-8 text-center mb-0">
+            <div className="grid md:grid-cols-2 gap-8 text-center mb-0">
                <div className="space-y-1">
                   <div className="text-4xl font-serif font-bold text-rothschild">2014</div>
                   <div className="text-xs font-medium text-gray-500 uppercase tracking-widest">notre année de création</div>
-               </div>
-               <div className="space-y-1">
-                  <div className="text-4xl font-serif font-bold text-rothschild">100%</div>
-                  <div className="text-xs font-medium text-gray-500 uppercase tracking-widest">indépendant</div>
                </div>
                <div className="space-y-1">
                   <div className="text-4xl font-serif font-bold text-rothschild text-nowrap">+2000</div>

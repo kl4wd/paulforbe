@@ -2,6 +2,8 @@
 
 import { useState, useMemo } from "react";
 import { Info } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 
 export const LoanSimulator = () => {
     const [amount, setAmount] = useState(250000);
@@ -131,7 +133,7 @@ export const LoanSimulator = () => {
                             </div>
                         </div>
                         
-                         <div className="pt-4">
+                         <div className="pt-4 space-y-4">
                             <div className="bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
                                 <h4 className="text-rothschild font-bold font-serif text-lg mb-2 flex items-center gap-2">
                                     <Info size={18} /> Conseil Paul Forbe
@@ -140,6 +142,12 @@ export const LoanSimulator = () => {
                                     Pour optimiser votre taux et votre montage financier, nos courtiers partenaires négocient pour vous les meilleures conditions auprès des banques.
                                 </p>
                             </div>
+
+                            <Link href="/contact" className="block w-full group">
+                                <Button className="w-full py-6 text-lg font-bold shadow-xl shadow-rothschild/20 group-hover:shadow-rothschild/30 transition-all group-hover:-translate-y-1">
+                                    Lancez votre projet
+                                </Button>
+                            </Link>
                         </div>
 
                     </div>

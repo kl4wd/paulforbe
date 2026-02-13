@@ -86,14 +86,14 @@ export const StickyScrollReveal = ({ items, sectionTitle }: StickyScrollRevealPr
 const SectionImage = ({ item, index, total, scrollYProgress }: { item: DomainItem, index: number, total: number, scrollYProgress: MotionValue<number> }) => {
     const opacity = useTransform(scrollYProgress, 
         index === 0 
-        ? [0, (index+1)/total-0.05, (index+1)/total] 
+        ? [0, (index+1)/total] 
         : index === total - 1
-            ? [index/total, index/total+0.05, 1]
+            ? [index/total, 1]
             : [index/total, index/total+0.05, (index+1)/total-0.05, (index+1)/total],
         index === 0
-        ? [1, 1, 0]
+        ? [1, 0]
         : index === total - 1
-            ? [0, 1, 1]
+            ? [0, 1]
             : [0, 1, 1, 0]
     );
 
@@ -106,7 +106,9 @@ const SectionImage = ({ item, index, total, scrollYProgress }: { item: DomainIte
                 src={item.image} 
                 alt={item.title} 
                 fill 
-                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={95}
+                className="object-cover object-center"
                 priority={index === 0}
             />
         </motion.div>

@@ -1,6 +1,6 @@
 "use client";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { Button } from "@/components/ui/Button";
+import { ContactForm } from "@/components/contact/ContactForm";
 
 export default function Contact() {
   return (
@@ -34,88 +34,10 @@ export default function Contact() {
             </div>
 
             <GlassCard className="p-10">
-                <form className="space-y-6" onSubmit={async (e) => {
-                    e.preventDefault();
-                    if (!confirm("Voulez-vous envoyer ce message ?")) return;
-                    
-                    const form = e.currentTarget;
-                    const formData = new FormData(form);
-                    formData.append('type', 'contact');
-                    
-                    const submitBtn = form.querySelector('button');
-                    if (submitBtn) { 
-                        submitBtn.disabled = true; 
-                        submitBtn.textContent = "Envoi en cours..."; 
-                    }
-                    
-                    try {
-                        const res = await fetch('/api/send-email', {
-                            method: 'POST',
-                            body: formData
-                        });
-                        
-                        if (res.ok) {
-                            alert("Message envoyé avec succès !");
-                            form.reset();
-                        } else {
-                            alert("Une erreur est survenue.");
-                        }
-                    } catch {
-                        alert("Erreur de connexion.");
-                    } finally {
-                        if (submitBtn) {
-                             submitBtn.disabled = false;
-                             submitBtn.textContent = "Envoyer"; 
-                        }
-                    }
-                }}>
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                             <label className="text-sm font-semibold text-gray-600">Prénom</label>
-                             <input name="firstName" type="text" required className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-rothschild focus:ring-1 focus:ring-rothschild outline-none transition-all" />
-                        </div>
-                         <div className="space-y-2">
-                             <label className="text-sm font-semibold text-gray-600">Nom</label>
-                             <input name="lastName" type="text" required className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-rothschild focus:ring-1 focus:ring-rothschild outline-none transition-all" />
-                        </div>
-                    </div>
-                    <div className="space-y-2">
-                         <label className="text-sm font-semibold text-gray-600">Email</label>
-                         <input name="email" type="email" required className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-rothschild focus:ring-1 focus:ring-rothschild outline-none transition-all" />
-                    </div>
-                    
-                    <div className="space-y-2">
-                         <label className="text-sm font-semibold text-gray-600">Téléphone</label>
-                         <input name="phone" type="tel" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-rothschild focus:ring-1 focus:ring-rothschild outline-none transition-all" />
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                             <label className="text-sm font-semibold text-gray-600">Nature du contact</label>
-                             <select name="nature" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-rothschild focus:ring-1 focus:ring-rothschild outline-none transition-all text-gray-700">
-                                 <option value="audit">Audit Patrimonial</option>
-                                 <option value="investissement">Investissement (SCPI, PE...)</option>
-                                 <option value="credit">Crédit Immobilier</option>
-                                 <option value="carriere">Carrière / Recrutement</option>
-                                 <option value="autre">Autre demande</option>
-                             </select>
-                        </div>
-                         <div className="space-y-2">
-                             <label className="text-sm font-semibold text-gray-600">Créneau préférentiel</label>
-                             <div className="grid grid-cols-2 gap-3">
-                                <input name="date" type="date" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-rothschild focus:ring-1 focus:ring-rothschild outline-none transition-all text-gray-700" />
-                                <input name="time" type="time" className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-rothschild focus:ring-1 focus:ring-rothschild outline-none transition-all text-gray-700" />
-                             </div>
-                        </div>
-                    </div>
-                     <div className="space-y-2">
-                         <label className="text-sm font-semibold text-gray-600">Message</label>
-                         <textarea name="message" required rows={4} className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-rothschild focus:ring-1 focus:ring-rothschild outline-none transition-all"></textarea>
-                    </div>
-                    <Button className="w-full">Envoyer</Button>
-                </form>
+                <ContactForm />
             </GlassCard>
        </div>
     </div>
   )
 }
+
