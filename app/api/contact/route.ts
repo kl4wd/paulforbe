@@ -27,7 +27,7 @@ export async function POST(request: Request) {
 
     const { firstName, lastName, email, phone, nature, date, time, message } = contactSchema.parse(body);
 
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: 'onboarding@resend.dev', // Domaine par défaut Resend (fonctionne uniquement vers l'email du compte Resend pour les tests)
       to: 'shmom.drch@gmail.com', // TODO: Changer pour contact@paulforbe.com en prod
       replyTo: email,
