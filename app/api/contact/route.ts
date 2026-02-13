@@ -88,7 +88,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error('Erreur API Contact:', error);
     if (error instanceof z.ZodError) {
-        return NextResponse.json({ success: false, error: 'Données invalides', details: (error as z.ZodError).errors }, { status: 400 });
+        return NextResponse.json({ success: false, error: 'Données invalides', details: (error as z.ZodError<any>).errors }, { status: 400 });
     }
     return NextResponse.json({ success: false, error: 'Erreur interne' }, { status: 500 });
   }
