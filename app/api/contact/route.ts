@@ -15,7 +15,13 @@ const contactSchema = z.object({
 });
 
 export async function POST(request: Request) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
+  const apiKey = process.env.RESEND_API_KEY;
+
+  if (!apiKey) {
+    return NextResponse.json({ success: false, error: 'Configuration serveur invalide' }, { status: 500 });
+  }
+
+  const resend = new Resend(apiKey);
 
   try {
     const body = await request.json();
