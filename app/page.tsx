@@ -17,7 +17,7 @@ const ScrollVideo = () => {
     const borderRadius = useTransform(scrollYProgress, [0, 0.5], [0, 32]);
     
     return (
-        <div ref={containerRef} className="h-[150vh] relative">
+        <div ref={containerRef} className="h-[120vh] md:h-[150vh] relative">
             <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
                 <motion.div 
                     style={{ scale, borderRadius }}
@@ -52,11 +52,11 @@ export default function Home() {
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 0.6 }}
            >
-              <h2 className="text-sm font-bold tracking-[0.2em] text-rothschild/60 uppercase mb-3">Conseil en gestion de patrimoine</h2>
-              <h1 className="text-4xl lg:text-5xl font-serif font-bold text-rothschild mb-6 leading-tight tracking-tight max-w-4xl mx-auto">
+              <h2 className="text-xs md:text-sm font-bold tracking-[0.2em] text-rothschild/60 uppercase mb-3">Conseil en gestion de patrimoine</h2>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-rothschild mb-6 leading-tight tracking-tight max-w-4xl mx-auto">
                 Une équipe au coeur de votre <span className="text-transparent bg-clip-text bg-gradient-to-r from-rothschild to-blue-600">stratégie patrimoniale.</span>
               </h1>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
                 Notre métier de conseil en gestion de patrimoine consiste à vous accompagner pour optimiser tous les sujets qui concernent votre patrimoine : épargne, placements, investissement immobilier, impôts, retraite, prévoyance...
               </p>
             </motion.div>

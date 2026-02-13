@@ -65,17 +65,17 @@ export const LoanSimulator = () => {
 
     return (
         <div className="w-full max-w-6xl mx-auto">
-             <div className="relative rounded-[2.5rem] overflow-hidden bg-white/60 backdrop-blur-2xl border border-white/60 shadow-2xl p-8 md:p-14 transition-all duration-500">
+             <div className="relative rounded-[2.5rem] overflow-hidden bg-white/60 backdrop-blur-2xl border border-white/60 shadow-2xl p-6 md:p-14 transition-all duration-500">
                 
 
 
-                <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start relative z-10">
-                    <div className="lg:col-span-5 space-y-12">
+                <div className="grid lg:grid-cols-12 gap-8 lg:gap-20 items-start relative z-10">
+                    <div className="lg:col-span-5 space-y-10 md:space-y-12">
                         
                         <div className="space-y-6">
                             <div className="space-y-1">
                                 <label className="text-sm font-bold text-gray-400 uppercase tracking-wider">Montant emprunté</label>
-                                <div className="text-3xl font-bold font-serif text-rothschild">{amount.toLocaleString()} €</div>
+                                <div className="text-2xl md:text-3xl font-bold font-serif text-rothschild">{amount.toLocaleString()} €</div>
                             </div>
                             <input 
                                 type="range"
@@ -89,7 +89,7 @@ export const LoanSimulator = () => {
                          <div className="space-y-6">
                             <div className="space-y-1">
                                 <label className="text-sm font-bold text-gray-400 uppercase tracking-wider">Durée</label>
-                                <div className="text-3xl font-bold font-serif text-rothschild">{years} ans</div>
+                                <div className="text-2xl md:text-3xl font-bold font-serif text-rothschild">{years} ans</div>
                             </div>
                             <input 
                                 type="range"
@@ -111,7 +111,7 @@ export const LoanSimulator = () => {
                                         value={interestRate}
                                         onChange={(e) => setInterestRate(Number(e.target.value))}
                                         step={0.01}
-                                        className="w-full bg-transparent text-2xl font-bold text-rothschild outline-none placeholder-gray-300"
+                                        className="w-full bg-transparent text-xl md:text-2xl font-bold text-rothschild outline-none placeholder-gray-300"
                                     />
                                     <span className="text-gray-400 font-bold mb-1">%</span>
                                 </div>
@@ -126,7 +126,7 @@ export const LoanSimulator = () => {
                                         value={insuranceRate}
                                         onChange={(e) => setInsuranceRate(Number(e.target.value))}
                                         step={0.01}
-                                        className="w-full bg-transparent text-2xl font-bold text-rothschild outline-none placeholder-gray-300"
+                                        className="w-full bg-transparent text-xl md:text-2xl font-bold text-rothschild outline-none placeholder-gray-300"
                                     />
                                     <span className="text-gray-400 font-bold mb-1">%</span>
                                 </div>
@@ -154,11 +154,11 @@ export const LoanSimulator = () => {
 
                     {/* Results Section */}
                     <div className="lg:col-span-7 flex flex-col h-full">
-                         <div className="relative bg-white rounded-3xl p-8 shadow-xl border border-slate-100 flex-1 min-h-[450px] flex flex-col overflow-hidden mb-8">
+                         <div className="relative bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-slate-100 flex-1 min-h-[450px] flex flex-col overflow-hidden mb-8">
                             
                             <div className="relative z-10 flex flex-col items-end text-right mb-8">
                                 <div className="text-sm font-medium text-gray-400 uppercase tracking-widest mb-1">Mensualités estimées</div>
-                                <div className="text-5xl md:text-6xl font-bold font-serif text-rothschild mb-2">
+                                <div className="text-4xl md:text-6xl font-bold font-serif text-rothschild mb-2">
                                     {Math.round(results.monthlyPayment).toLocaleString('fr-FR')} €
                                 </div>
                                 <div className="text-sm text-gray-500 font-medium bg-slate-50 px-3 py-1 rounded-full">

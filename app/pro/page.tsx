@@ -60,7 +60,7 @@ export default function ProPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden bg-slate-900 text-white">
+      <section className="relative pt-24 md:pt-32 pb-12 md:pb-20 overflow-hidden bg-slate-900 text-white">
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[100px] opacity-20 pointer-events-none translate-x-1/3 -translate-y-1/3" />
         
@@ -70,8 +70,8 @@ export default function ProPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-blue-400 font-bold tracking-widest uppercase text-sm mb-4">Espace Entreprise</h2>
-            <h1 className="text-5xl lg:text-7xl font-serif font-bold mb-8 leading-tight">
+            <h2 className="text-blue-400 font-bold tracking-widest uppercase text-xs md:text-sm mb-4">Espace Entreprise</h2>
+            <h1 className="text-4xl lg:text-7xl font-serif font-bold mb-6 md:mb-8 leading-tight">
               Protégez votre <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-indigo-300">Activité & Croissance</span>
             </h1>

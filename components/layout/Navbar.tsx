@@ -120,12 +120,12 @@ export const Navbar = () => {
                     </div>
 
                     <div className={cn(
-                        "fixed inset-0 bg-white z-40 flex flex-col pt-32 px-10 gap-8 transition-all duration-500 md:hidden",
+                        "fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 gap-6 transition-all duration-500 md:hidden overflow-y-auto pb-8",
                         isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
                     )}>
                         <Link 
                             href="/"
-                            className="text-3xl font-serif font-bold text-rothschild"
+                            className="text-2xl font-serif font-bold text-rothschild"
                             onClick={() => setIsOpen(false)}
                         >
                             Accueil
@@ -134,37 +134,34 @@ export const Navbar = () => {
                         <div className="space-y-4">
                             <button 
                                 onClick={() => setMobilePourquoiNousOpen(!mobilePourquoiNousOpen)}
-                                className="flex items-center gap-2 text-3xl font-serif font-bold text-rothschild w-full justify-between"
+                                className="flex items-center gap-2 text-2xl font-serif font-bold text-rothschild w-full justify-between"
                             >
                                 Pourquoi nous ?
-                                <ChevronDown size={24} className={cn("transition-transform", mobilePourquoiNousOpen && "rotate-180")} />
+                                <ChevronDown size={20} className={cn("transition-transform", mobilePourquoiNousOpen && "rotate-180")} />
                             </button>
                             
                             {mobilePourquoiNousOpen && (
-                                <div className="flex flex-col gap-4 pl-4 border-l-2 border-rothschild/20">
+                                <div className="flex flex-col gap-3 pl-4 border-l-2 border-rothschild/20">
                                     <Link 
                                         href="/pro"
                                         onClick={() => setIsOpen(false)}
-                                        className="text-xl font-medium text-gray-600 block"
+                                        className="text-lg font-medium text-gray-600 block"
                                     >
                                         Espace Pro
                                     </Link>
                                     <Link 
                                         href="/avis"
                                         onClick={() => setIsOpen(false)}
-                                        className="text-xl font-medium text-gray-600 block"
+                                        className="text-lg font-medium text-gray-600 block"
                                     >
                                         Avis Clients
                                     </Link>
                                     <Link 
                                         href="/equipe"
                                         onClick={() => setIsOpen(false)}
-                                        className="text-xl font-medium text-gray-600 block"
+                                        className="text-lg font-medium text-gray-600 block"
                                     >
                                         Notre Équipe
-                                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                        Découvrez l&apos;équipe qui vous accompagne au quotidien.
-                                    </p>
                                     </Link>
                                 </div>
                             )}
@@ -173,32 +170,32 @@ export const Navbar = () => {
                         <div className="space-y-4">
                             <button 
                                 onClick={() => setMobileSubmenuOpen(!mobileSubmenuOpen)}
-                                className="flex items-center gap-2 text-3xl font-serif font-bold text-rothschild w-full justify-between"
+                                className="flex items-center gap-2 text-2xl font-serif font-bold text-rothschild w-full justify-between"
                             >
                                 Ressources
-                                <ChevronDown size={24} className={cn("transition-transform", mobileSubmenuOpen && "rotate-180")} />
+                                <ChevronDown size={20} className={cn("transition-transform", mobileSubmenuOpen && "rotate-180")} />
                             </button>
                             
                             {mobileSubmenuOpen && (
-                                <div className="flex flex-col gap-4 pl-4 border-l-2 border-rothschild/20">
+                                <div className="flex flex-col gap-3 pl-4 border-l-2 border-rothschild/20">
                                     <Link 
                                         href="/ressources/simulateur-investissement"
                                         onClick={() => setIsOpen(false)}
-                                        className="text-xl font-medium text-gray-600 block"
+                                        className="text-lg font-medium text-gray-600 block"
                                     >
                                         Simulateur Investissement
                                     </Link>
                                     <Link 
                                         href="/ressources/simulateur-pret"
                                         onClick={() => setIsOpen(false)}
-                                        className="text-xl font-medium text-gray-600 block"
+                                        className="text-lg font-medium text-gray-600 block"
                                     >
                                         Simulateur Prêt
                                     </Link>
                                     <Link 
                                         href="/faq"
                                         onClick={() => setIsOpen(false)}
-                                        className="text-xl font-medium text-gray-600 block"
+                                        className="text-lg font-medium text-gray-600 block"
                                     >
                                         FAQ
                                     </Link>
@@ -208,7 +205,7 @@ export const Navbar = () => {
 
                         <Link 
                             href="/contact"
-                            className="text-3xl font-serif font-bold text-rothschild"
+                            className="text-2xl font-serif font-bold text-rothschild"
                             onClick={() => setIsOpen(false)}
                         >
                             Contact

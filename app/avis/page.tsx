@@ -31,7 +31,7 @@ const reviews = [
 export default function AvisPage() {
   return (
     <div className="min-h-screen bg-slate-50 overflow-hidden">
-      <section className="relative pt-32 pb-12">
+      <section className="relative pt-24 md:pt-32 pb-12">
         <div className="absolute top-0 left-0 -translate-y-1/2 -translate-x-1/3 w-[600px] h-[600px] bg-yellow-100 rounded-full blur-3xl opacity-30 pointer-events-none" />
         
         <div className="container mx-auto px-6 text-center relative z-10">
@@ -40,7 +40,7 @@ export default function AvisPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl lg:text-5xl font-serif font-bold text-rothschild mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-rothschild mb-6">
               Ce que disent <span className="text-transparent bg-clip-text bg-gradient-to-r from-rothschild to-yellow-500">nos clients</span>
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-10">
@@ -89,7 +89,7 @@ export default function AvisPage() {
 }
 
 const ReviewCard = ({ review }: { review: { name: string; role: string; content: string; rating: number } }) => (
-    <div className="flex-shrink-0 w-[350px] bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative">
+    <div className="flex-shrink-0 w-[280px] md:w-[350px] bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative">
         <Quote className="absolute top-4 right-4 text-slate-100 w-8 h-8" />
         <div className="flex gap-1 mb-3">
             {[...Array(5)].map((_, i) => (

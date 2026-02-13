@@ -62,7 +62,7 @@ export const StickyScrollReveal = ({ items, sectionTitle }: StickyScrollRevealPr
                     <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/60 to-transparent pointer-events-none z-10" />
                 </div>
 
-                <div className="w-full md:w-1/2 h-1/2 md:h-full bg-white flex items-center justify-center p-8 md:p-20 relative z-20">
+                <div className="w-full md:w-1/2 h-1/2 md:h-full bg-white flex items-center justify-center p-6 md:p-20 relative z-20">
                      <div className="relative w-full max-w-xl grid place-items-center">
                         {items.map((item, index) => (
                              <SectionText 
@@ -163,11 +163,11 @@ const SectionText = ({ item, index, total, scrollYProgress }: { item: DomainItem
 
             </div>
 
-            <h3 className="text-3xl md:text-5xl font-serif font-bold text-rothschild mb-6 leading-tight">
+            <h3 className="text-2xl md:text-5xl font-serif font-bold text-rothschild mb-4 md:mb-6 leading-tight">
                 {item.title}
             </h3>
             
-            <p className="text-gray-600 text-lg leading-relaxed mb-8">
+            <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-6 md:mb-8">
                 {item.desc}
             </p>
 
