@@ -2,8 +2,6 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { z } from 'zod';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const contactSchema = z.object({
   firstName: z.string().min(2),
   lastName: z.string().min(2),
@@ -13,14 +11,15 @@ const contactSchema = z.object({
   date: z.string().optional(),
   time: z.string().optional(),
   message: z.string().min(10),
-  honeypot: z.string().optional().or(z.literal('')), 
+  honeypot: z.string().optional(),
 });
 
 export async function POST(request: Request) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
   try {
     const body = await request.json();
 
-    // Honeypot check
     if (body.honeypot) {
       return NextResponse.json({ success: true }, { status: 200 });
     }
@@ -28,8 +27,8 @@ export async function POST(request: Request) {
     const { firstName, lastName, email, phone, nature, date, time, message } = contactSchema.parse(body);
 
     const { error } = await resend.emails.send({
-      from: 'onboarding@resend.dev', // Domaine par défaut Resend (fonctionne uniquement vers l'email du compte Resend pour les tests)
-      to: 'shmom.drch@gmail.com', // TODO: Changer pour contact@paulforbe.com en prod
+      from: 'onboarding@resend.dev',
+      to: 'shmom.drch@gmail.com',
       replyTo: email,
       subject: `Nouveau Contact Site: ${firstName} ${lastName} - ${nature}`,
       html: `
@@ -72,27 +71,25 @@ export async function POST(request: Request) {
             </div>
 
             <div style="background-color: #f8fafc; padding: 16px; text-align: center; color: #94a3b8; font-size: 12px; border-top: 1px solid #e5e7eb;">
-                © 2024 Paul Forbe - Gestion de Patrimoine
+                © 2026 Paul Forbe - Gestion de Patrimoine
             </div>
         </div>
       `,
     });
 
     if (error) {
-      console.error('Erreur API Contact Resend:', error);
-      return NextResponse.json({ success: false, error: 'Erreur lors de l\'envoi' }, { status: 500 });
+      return NextResponse.json({ success: false, error: 'Erreur lors de l envoi' }, { status: 500 });
     }
 
     return NextResponse.json({ success: true, message: 'Message envoyé' }, { status: 200 });
 
   } catch (error) {
-    console.error('Erreur API Contact:', error);
     if (error instanceof z.ZodError) {
         return NextResponse.json({ 
-        success: false, 
-        error: 'Données invalides', 
-        details: error.issues 
-    }, { status: 400 });
+            success: false, 
+            error: 'Données invalides', 
+            details: error.issues 
+        }, { status: 400 });
     }
     return NextResponse.json({ success: false, error: 'Erreur interne' }, { status: 500 });
   }
