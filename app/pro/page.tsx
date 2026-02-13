@@ -76,7 +76,7 @@ export default function ProPage() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-indigo-300">Activité & Croissance</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed font-light">
-              Des solutions d'assurance et de patrimoine sur-mesure pour les indépendants, TPE et PME.
+              Des solutions d&apos;assurance et de patrimoine sur-mesure pour les indépendants, TPE et PME.
               Concentrez-vous sur votre métier, nous gérons vos risques.
             </p>
              <div className="flex flex-col md:flex-row gap-4 justify-center">
@@ -95,7 +95,7 @@ export default function ProPage() {
       <section id="solutions" className="py-24 bg-slate-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-              <h2 className="text-3xl font-serif font-bold text-rothschild mb-4">Nos domaines d'intervention</h2>
+              <h2 className="text-3xl font-serif font-bold text-rothschild mb-4">Nos domaines d&apos;intervention</h2>
               <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full" />
           </div>
 

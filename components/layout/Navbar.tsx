@@ -68,7 +68,7 @@ export const Navbar = () => {
                                     </Link>
                                     <Link href="/avis" className="block px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors group/item">
                                         <div className="text-sm font-serif font-bold text-rothschild group-hover/item:translate-x-1 transition-transform">Avis Clients</div>
-                                        <div className="text-xs text-gray-500 mt-0.5">Retours d'expérience</div>
+                                        <div className="text-xs text-gray-500 mt-0.5">Retours d&apos;expérience</div>
                                     </Link>
                                     <Link href="/equipe" className="block px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors group/item">
                                         <div className="text-sm font-serif font-bold text-rothschild group-hover/item:translate-x-1 transition-transform">Notre Équipe</div>
