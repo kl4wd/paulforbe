@@ -132,31 +132,39 @@ export default function ProPage() {
                 <div className="absolute inset-0 bg-blue-600/20 mix-blend-overlay"></div>
                 <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">Pourquoi faire appel à un courtier spécialisé ?</h2>
-                        <ul className="space-y-4">
-                            {[
-                                "Analyse précise de vos risques professionnels",
-                                "Négociation des meilleures conditions tarifaires",
-                                "Accès aux offres non-publiques du marché",
-                                "Gestion simplifiée de tous vos contrats"
-                            ].map((item, i) => (
-                                <li key={i} className="flex items-center gap-3 text-blue-100 text-lg">
-                                    <CheckCircle2 className="text-blue-400 flex-shrink-0" />
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
+                        <h2 className="text-3xl font-serif font-bold text-rothschild mb-4">Pourquoi faire appel à un courtier spécialisé ?</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+                Nous comprenons les enjeux spécifiques des professionnels. Gagnez du temps et optimisez votre protection grâce à notre expertise.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+                <div className="flex gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                        <UserCheck size={24} />
                     </div>
-                    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-center">
-                        <h3 className="text-2xl font-bold mb-2">Un projet ? Une question ?</h3>
-                        <p className="text-blue-100 mb-8">Nos experts entreprises vous répondent sous 24h.</p>
-                        <Link 
-                            href="/contact" 
-                            className="inline-flex items-center justify-center w-full px-8 py-4 bg-white text-rothschild rounded-xl font-bold hover:bg-blue-50 transition-colors"
-                        >
-                            Contacter le pôle Pro
-                            <ArrowRight className="ml-2 w-5 h-5" />
-                        </Link>
+                    <div>
+                        <h3 className="font-bold text-lg text-gray-900 mb-1">Expertise Métier</h3>
+                        <p className="text-gray-600">Nous connaissons les risques liés à votre activité et trouvons les contrats les plus adaptés.</p>
+                    </div>
+                </div>
+                <div className="flex gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-yellow-100 text-yellow-600 flex items-center justify-center shrink-0">
+                        <Clock size={24} />
+                    </div>
+                    <div>
+                        <h3 className="font-bold text-lg text-gray-900 mb-1">Gain de temps</h3>
+                        <p className="text-gray-600">Ne perdez plus d&apos;heures à comparer les offres. Nous le faisons pour vous.</p>
+                    </div>
+                </div>
+                <div className="flex gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center shrink-0">
+                        <CheckCircle2 size={24} />
+                    </div>
+                    <div>
+                        <h3 className="font-bold text-lg text-gray-900 mb-1">Indépendance</h3>
+                        <p className="text-gray-600">Nous ne sommes liés à aucune compagnie. Notre seul intérêt est le d&apos;autre.</p>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Loader2, CheckCircle, AlertCircle } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 export const ContactForm = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -34,9 +33,13 @@ export const ContactForm = () => {
 
             setStatus("success");
             form.reset();
-        } catch (error: any) {
+        } catch (error) {
             setStatus("error");
-            setErrorMessage(error.message || "Erreur de connexion");
+            if (error instanceof Error) {
+                 setErrorMessage(error.message);
+            } else {
+                 setErrorMessage("Erreur de connexion");
+            }
         } finally {
             setIsLoading(false);
         }

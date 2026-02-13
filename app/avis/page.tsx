@@ -88,7 +88,7 @@ export default function AvisPage() {
   );
 }
 
-const ReviewCard = ({ review }: { review: any }) => (
+const ReviewCard = ({ review }: { review: { name: string; role: string; content: string; rating: number } }) => (
     <div className="flex-shrink-0 w-[350px] bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative">
         <Quote className="absolute top-4 right-4 text-slate-100 w-8 h-8" />
         <div className="flex gap-1 mb-3">
@@ -101,7 +101,7 @@ const ReviewCard = ({ review }: { review: any }) => (
             ))}
         </div>
         <p className="text-gray-600 text-sm italic mb-4 line-clamp-3">
-            "{review.content}"
+            &quot;{review.content}&quot;
         </p>
         <div>
             <h4 className="font-bold text-rothschild text-sm">{review.name}</h4>

@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { User, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 
 const team = [
   {

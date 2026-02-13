@@ -162,6 +162,9 @@ export const Navbar = () => {
                                         className="text-xl font-medium text-gray-600 block"
                                     >
                                         Notre Équipe
+                                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                                        Découvrez l&apos;équipe qui vous accompagne au quotidien.
+                                    </p>
                                     </Link>
                                 </div>
                             )}
