@@ -6,25 +6,25 @@ import Link from "next/link";
 
 const team = [
   {
-    name: "Gaetan",
+    name: "Gaëtan",
     role: "CEO & Fondateur",
-    bio: "Expert en stratégie patrimoniale depuis plus de 15 ans. Gaetan accompagne les dirigeants et familles fortunées dans la structuration de leur patrimoine.",
+    bio: "Expert en stratégie patrimoniale depuis plus de 15 ans. Gaëtan accompagne les dirigeants et familles fortunées dans la structuration de leur patrimoine.",
     image: "/team/gaetan.jpg", // Placeholder path
     linkedin: "#",
     email: "gaetan@paulforbe.com"
   },
   {
-    name: "Mylene",
+    name: "Mylène",
     role: "Responsable Partenariats & Assurances",
-    bio: "Spécialiste de la protection sociale et des assurances. Mylene veille à ce que chaque client bénéficie des meilleures couvertures du marché.",
+    bio: "Spécialiste de la protection sociale et des assurances. Mylène veille à ce que chaque client bénéficie des meilleures couvertures du marché.",
     image: "/team/mylene.jpg", // Placeholder path
     linkedin: "#",
     email: "mylene@paulforbe.com"
   },
   {
-    name: "Ines",
+    name: "Inès",
     role: "Conseillère en Gestion de Patrimoine",
-    bio: "Passionnée par l'investissement immobilier et financier. Ines vous guide avec pédagogie pour faire fructifier votre épargne.",
+    bio: "Passionnée par l'investissement immobilier et financier. Inès vous guide avec pédagogie pour faire fructifier votre épargne.",
     image: "/team/ines.jpg", // Placeholder path
     linkedin: "#",
     email: "ines@paulforbe.com"

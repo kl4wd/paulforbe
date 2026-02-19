@@ -23,19 +23,19 @@ const partners = [
 
 export const Partners = () => {
     return (
-        <section className="py-12 bg-white border-y border-slate-100 overflow-hidden">
-             <div className="container mx-auto px-6 mb-10 text-center">
-                <p className="text-sm font-bold tracking-widest text-gray-400 uppercase">Ils nous font confiance</p>
+        <section className="py-6 bg-white border-y border-slate-100 overflow-hidden">
+             <div className="container mx-auto px-6 mb-6 text-center">
+                <p className="text-xs font-bold tracking-widest text-gray-400 uppercase">Ils nous font confiance</p>
             </div>
             
             <div className="relative flex overflow-x-hidden group">
                 <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
                 <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
 
-                <div className="animate-marquee flex whitespace-nowrap gap-16 items-center px-4">
+                <div className="animate-marquee flex whitespace-nowrap gap-16 items-center px-4" style={{ animationDuration: '80s' }}>
                     {[...partners, ...partners].map((partner, i) => (
-                        <div key={i} className="flex flex-col items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                           <div className="h-16 w-auto min-w-[120px] relative flex items-center justify-center">
+                        <div key={i} className="flex flex-col items-center justify-center transition-all duration-300 hover:scale-110">
+                           <div className="h-14 w-auto min-w-[120px] relative flex items-center justify-center">
                                 <Image 
                                     src={`/partners/${partner.logo}`} 
                                     alt={partner.name}
@@ -49,10 +49,10 @@ export const Partners = () => {
                     ))}
                 </div>
 
-                <div className="absolute top-0 animate-marquee2 flex whitespace-nowrap gap-16 items-center px-4">
+                <div className="absolute top-0 animate-marquee2 flex whitespace-nowrap gap-16 items-center px-4" style={{ animationDuration: '80s' }}>
                      {[...partners, ...partners].map((partner, i) => (
-                        <div key={i} className="flex flex-col items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                           <div className="h-16 w-auto min-w-[120px] relative flex items-center justify-center">
+                        <div key={i} className="flex flex-col items-center justify-center transition-all duration-300 hover:scale-110">
+                           <div className="h-14 w-auto min-w-[120px] relative flex items-center justify-center">
                                 <Image 
                                     src={`/partners/${partner.logo}`} 
                                     alt={partner.name}

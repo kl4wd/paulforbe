@@ -173,17 +173,12 @@ const SectionText = ({ item, index, total, scrollYProgress }: { item: DomainItem
 
             {item.list && (
                  <ul className="space-y-3 inline-block text-left">
-                    {item.list.slice(0, 5).map((li, idx) => (
+                    {item.list.map((li, idx) => (
                         <li key={idx} className="flex items-start gap-3">
                              <div className="w-1.5 h-1.5 rounded-full bg-rothschild mt-2.5 shrink-0" />
                              <span className="text-gray-700 font-medium">{li}</span>
                         </li>
                     ))}
-                    {item.list.length > 5 && (
-                        <li className="text-sm font-bold text-rothschild pt-2 pl-4">
-                            ...et {item.list.length - 5} autres solutions spécialisées.
-                        </li>
-                    )}
                 </ul>
             )}
         </motion.div>

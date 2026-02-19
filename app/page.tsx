@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Partners } from "@/components/ui/Partners";
 import { StickyScrollReveal } from "@/components/ui/StickyScrollReveal";
+import { ReviewsSection } from "@/components/ui/ReviewsSection";
 
 const ScrollVideo = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -77,7 +78,7 @@ export default function Home() {
                   <div className="text-xs font-medium text-gray-500 uppercase tracking-widest">notre année de création</div>
                </div>
                <div className="space-y-1">
-                  <div className="text-4xl font-serif font-bold text-rothschild text-nowrap">+2000</div>
+                  <div className="text-4xl font-serif font-bold text-rothschild text-nowrap">+ de 2 882</div>
                   <div className="text-xs font-medium text-gray-500 uppercase tracking-widest">projets réalisés</div>
                </div>
             </div>
@@ -95,16 +96,16 @@ export default function Home() {
             sectionTitle="Notre Expertise"
             items={[
             {
-                title: "Planification patrimoniale",
-                desc: "La planification patrimoniale est un sujet qui occupe un nombre croissant de ménages de nos jours. Et pour cause. Familles recomposées, délocalisations, diversification du patrimoine et bien d’autres raisons justifient une intervention préalable pour garantir une transmission réussie des avoirs aux prochaines générations.",
-                icon: Compass,
-                image: "/expertises/planification.jpg"
-            },
-            {
                 title: "Stratégie immobilier & Asset management",
                 desc: "Dans un marché immobilier de plus en plus complexe, bâtir ou optimiser un portefeuille d’actifs immobiliers requiert services sur mesure et conseils en stratégie d’investissement immobilier. Les équipes spécialisées en capital markets de Paul Forbe déploient leur savoir-faire et leur vision globale du secteur pour vous permettre de créer toute la valeur à laquelle vous aspirez.",
                 icon: Building2,
                 image: "/expertises/strategie_immo.jpg"
+            },
+            {
+                title: "Planification patrimoniale",
+                desc: "La planification patrimoniale est un sujet qui occupe un nombre croissant de ménages de nos jours. Et pour cause. Familles recomposées, délocalisations, diversification du patrimoine et bien d’autres raisons justifient une intervention préalable pour garantir une transmission réussie des avoirs aux prochaines générations.",
+                icon: Compass,
+                image: "/expertises/planification.jpg"
             },
             {
                 title: "Réduction d'impôt",
@@ -120,11 +121,17 @@ export default function Home() {
                 desc: "Un éventail de facteurs peut déterminer votre stratégie d’investissement personnelle. Cela comprend votre appétence aux risques et les retours que vous espérez obtenir sur vos investissements, ainsi que les actifs, régions ou secteurs qui vous intéressent. Le temps que vous pensez passer à investir devrait aussi définir votre stratégie.",
                 icon: TrendingUp,
                 image: "/expertises/strategie_invest.jpg"
+            },
+            {
+                title: "Audit patrimonial & Transmission",
+                desc: "Pour construire l’architecture de votre patrimoine, le cabinet Paul Forbe élabore au préalable un audit patrimonial. L’audit patrimonial est un bilan de votre patrimoine et de votre situation (situation civile et familiale, professionnelle, budgétaire, fiscale, prévoyance).",
+                icon: ClipboardCheck,
+                image: "/expertises/audit.jpg"
             }
          ]} />
       </section>
 
-      <section id="expertises" className="relative bg-white pb-32">
+      <section id="expertises" className="relative bg-white pb-0">
          <div className="container mx-auto px-6 py-10 text-center">
             <h2 className="text-3xl md:text-5xl font-serif font-bold text-rothschild mb-4">Nos secteurs d&apos;intervention</h2>
             <div className="w-24 h-1 bg-rothschild/20 mx-auto rounded-full" />
@@ -174,25 +181,21 @@ export default function Home() {
                 title: "Les assurances",
                 desc: "Paul Forbe dispose d'une large gamme de produits d'assurances minutieusement sélectionnés parmi les meilleurs du marché afin de couvrir et prévoir tous les risques :",
                 list: [
-                    "Assurance Auto / Moto / Scooter / Trotinette",
                     "Assurance habitation",
-                    "Garantie des accidents de la vie",
+                    "Propriétaire non-occupant",
+                    "Garantie loyers impayés",
+                    "Assurance emprunteur",
                     "Prévoyance décès",
-                    "Complémentaire santé",
-                    "Protection juridique",
-                    "Assurance emprunteur"
+                    "Mutuelle santé",
+                    "Assurance Auto / Moto / Scooter"
                 ],
                 icon: ShieldCheck,
                 image: "/expertises/assurances.jpg"
-            },
-            {
-                title: "L'audit patrimonial",
-                desc: "Pour construire l’architecture de votre patrimoine, le cabinet Paul Forbe élabore au préalable un audit patrimonial. L’audit patrimonial est un bilan de votre patrimoine et de votre situation (situation civile et familiale, professionnelle, budgétaire, fiscale, prévoyance).",
-                icon: ClipboardCheck,
-                image: "/expertises/audit.jpg"
             }
         ]} />
       </section>
+
+      <ReviewsSection />
     </div>
   );
 }
