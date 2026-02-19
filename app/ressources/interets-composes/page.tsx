@@ -12,7 +12,7 @@ import {
 } from "recharts";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Info, HelpCircle } from "lucide-react";
+import { HelpCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function CompoundInterestCalculator() {
@@ -306,7 +306,7 @@ export default function CompoundInterestCalculator() {
                                     <Tooltip 
                                         contentStyle={{ backgroundColor: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
                                         itemStyle={{ color: '#0f172a', fontSize: '12px', fontWeight: 'bold' }}
-                                        formatter={(value: any) => formatCurrency(value)}
+                                        formatter={(value: number | undefined) => value !== undefined ? formatCurrency(value) : ''}
                                         labelStyle={{ color: '#64748b', marginBottom: '4px' }}
                                     />
                                     <Area 
